@@ -14,7 +14,7 @@
           <img
             class="nav_item_img"
             src="../../assets/repo.svg"
-            alt="Overview"
+            alt="Repositories"
           />
           <p class="nav_item_text">Repositories</p>
         </span>
@@ -22,7 +22,7 @@
           <img
             class="nav_item_img"
             src="../../assets/project.svg"
-            alt="Overview"
+            alt="Projects"
           />
           <p class="nav_item_text">Projects</p>
         </span>
@@ -30,7 +30,7 @@
           <img
             class="nav_item_img"
             src="../../assets/package.svg"
-            alt="Overview"
+            alt="Packages"
           />
           <p class="nav_item_text">Packages</p>
         </span>

@@ -13,7 +13,7 @@
       <span class="fullname">Samuel Adeniran</span>
       <span class="username">Sammuel09</span>
       <span class="bio">Learner | Explorer | Developer</span>
-      <button class="profile_btn">Edit Profile</button>
+      <button class="btn">Edit Profile</button>
     </div>
     <div class="user_profile_info">
       <span class="user_follower_info">
@@ -76,8 +76,8 @@
         <span class="contact_info_text">@adeniransamuel</span>
       </span>
     </div>
-    <div>
-      <div class="highlights">Highlights</div>
+    <div class="highlights">
+      <div class="highlights_text">Highlights</div>
       <div class="code_vault">
         <span
           ><img
@@ -92,16 +92,14 @@
     </div>
     <div>
       <div class="organizations">Organizations</div>
-      <div class="code_vault">
-        <span
-          ><img
-            src="../../assets/north-star.svg"
-            alt="North Star"
-            width="20px"
-            height="20px"
-          />
-        </span>
-      </div>
+      <span
+        ><img
+          src="https://avatars1.githubusercontent.com/u/28545268?s=60&v=4"
+          alt="North Star"
+          width="20px"
+          height="20px"
+        />
+      </span>
     </div>
   </div>
 </template>
@@ -115,7 +113,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 240px;
+  width: 100%;
+  /* width: 240px; */
 }
 .user_img {
   border-radius: 50px;
@@ -126,10 +125,10 @@ export default {
   align-items: left;
 }
 
-.profile_btn {
+.btn {
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-weight: bold;
   cursor: pointer;
   outline: none;
@@ -166,7 +165,6 @@ export default {
 .code_vault {
   display: flex;
   align-content: center;
-  margin-bottom: 10px;
 }
 
 .fullname {
@@ -192,7 +190,11 @@ export default {
 }
 
 .highlights {
-  margin-top: 20px;
+  border-bottom: 1px solid #d1d5da;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.highlights_text {
   margin-bottom: 10px;
   font-weight: 800;
 }

@@ -10,7 +10,7 @@
           />
           <p class="nav_item_text">Overview</p>
         </span>
-        <span class="nav_item">
+        <span class="nav_item nav_item_repo">
           <img
             class="nav_item_img"
             src="../../assets/repo.svg"
@@ -60,17 +60,27 @@ export default {
 .nav_item {
   display: flex;
   margin-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   cursor: pointer;
   z-index: 100;
 }
 
 .nav_item:hover,
-nav_item:focus {
+.nav_item:focus {
   border-bottom: 2px solid #d1d5da;
 }
 
+.nav_item_repo {
+  border-bottom: 2px solid #f9826c;
+}
+
+.nav_item_repo:hover {
+  border-bottom: 2px solid #f9826c;
+}
+
 .nav_item_img {
-  margin: 7px;
+  margin-right: 7px;
 }
 .nav_item_text {
   font-weight: 500;

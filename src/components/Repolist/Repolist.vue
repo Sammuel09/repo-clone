@@ -46,19 +46,28 @@
       </button>
     </div>
     <div class="repo">
-      <Repo />
-      <Repo />
-      <Repo />
-      <Repo />
+      <Repo v-for="repo in repos" :key="repo.id" :repo="repo" />
     </div>
   </div>
 </template>
 <script>
 import Repo from "@/components/Repo/Repo.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Repolist",
   components: {
     Repo,
+  },
+  created() {
+    this.fetchRepos("sammuel09");
+  },
+  methods: {
+    ...mapActions(["fetchRepos"]),
+  },
+  computed: {
+    ...mapState({
+      repos: (state) => state.repos,
+    }),
   },
 };
 </script>

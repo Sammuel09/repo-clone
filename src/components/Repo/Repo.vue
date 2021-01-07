@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <span class="repo_title_group">
-      <a href="" class="repo_title">octicons</a>
+      <a :href="repo.html_url" class="repo_title">{{ repo.name }}</a>
       <button class="btn btn_star">
         <span
           ><img
@@ -14,9 +14,11 @@
         Star
       </button>
     </span>
-    <div class="repo_subtitle">Forked from primer/octicons</div>
+    <div v-if="repo.fork" class="repo_subtitle">
+      Forked from primer/octicons
+    </div>
     <div class="repo_description">
-      A scalable set of icons handcrafted with love by GitHub
+      {{ repo.description }}
     </div>
     <div class="repo_info">
       <span class="repo_language">
@@ -54,7 +56,7 @@
           width="18px"
           height="18px"
         />
-        <span class="repo_license_text">MIT License</span>
+        <span class="repo_license_text">{{ license }}</span>
       </span>
       <span>
         Updated
@@ -64,8 +66,25 @@
   </div>
 </template>
 <script>
+// import * as moment from "moment";
 export default {
   name: "Repo",
+  props: {
+    repo: Object,
+  },
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
+  computed: {
+    license: function () {
+      if (this.repo.license === null) {
+        return "MIT License";
+      }
+      return this.repo.license.name || "MIT License";
+    },
+  },
 };
 </script>
 <style scoped>

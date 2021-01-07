@@ -3,11 +3,13 @@
     <Header />
     <Nav />
     <div class="main">
-      <div class="sidebar">
-        <Sidebar />
-      </div>
-      <div class="repolist">
-        <Repolist />
+      <div class="main_items">
+        <div class="sidebar">
+          <Sidebar />
+        </div>
+        <div class="repolist">
+          <Repolist />
+        </div>
       </div>
     </div>
   </div>
@@ -34,14 +36,18 @@ export default {
 <style scoped>
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+.main_items {
+  display: flex;
+  justify-content: center;
 }
 .sidebar {
-  width: 16%;
-  margin-left: 17%;
+  width: 20%;
+  margin-left: 1%;
 }
 .repolist {
-  width: 75%;
-  margin-left: 40px;
+  width: 70%;
+  margin-left: 25px;
 }
 </style>

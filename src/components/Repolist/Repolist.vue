@@ -78,7 +78,7 @@ export default {
   flex-direction: column;
 }
 .search_group {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   padding-top: 16px;
@@ -129,6 +129,6 @@ export default {
 }
 
 .repo {
-  width: 70%;
+  width: 100%;
 }
 </style>

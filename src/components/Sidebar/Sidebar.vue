@@ -35,7 +35,7 @@
           width="16px"
           height="16px"
         />
-        <span class="user_info_count">{{ user.followers }}</span> following
+        <span class="user_info_count">{{ user.following }}</span> following
       </div>
       <div class="user_star_info">
         <img

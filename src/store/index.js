@@ -40,6 +40,7 @@ export default new Vuex.Store({
       commit('FETCH_USER_LOADING')
       try {
         const userData = await apiCall(user)
+        console.log("user", userData);
         commit('FETCH_USER_SUCCESS', userData)
       } catch (error) {
         console.error(`failed to fetch users: ${error}`);

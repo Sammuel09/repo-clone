@@ -1,18 +1,19 @@
 <template>
   <div class="main">
     <div class="user_profile_img">
-      <img
-        class="user_img"
-        src="../../assets/sammie_github.jpeg"
-        alt="User Profile Image"
-        width="100px"
-        height="100px"
-      />
+      <a href="/account"
+        ><img
+          class="user_img"
+          :src="user.avatar_url"
+          alt="User Profile Image"
+          width="270px"
+          height="270px"
+      /></a>
     </div>
     <div class="user_profile">
-      <span class="fullname">Samuel Adeniran</span>
-      <span class="username">Sammuel09</span>
-      <span class="bio">Learner | Explorer | Developer</span>
+      <span class="fullname">{{ user.name }}</span>
+      <span class="username">{{ user.login }}</span>
+      <span class="bio">{{ user.bio }}</span>
       <button class="btn">Edit Profile</button>
     </div>
     <div class="user_profile_info">
@@ -25,7 +26,7 @@
             height="16px"
           />
         </span>
-        <span class="user_info_count">5</span> followers
+        <span class="user_info_count">{{ user.followers }}</span> followers
       </span>
       <div class="user_following_info">
         <img
@@ -34,7 +35,7 @@
           width="16px"
           height="16px"
         />
-        <span class="user_info_count">20</span> following
+        <span class="user_info_count">{{ user.followers }}</span> following
       </div>
       <div class="user_star_info">
         <img
@@ -54,7 +55,7 @@
           width="16px"
           height="16px"
         />
-        <span class="contact_info_text">Lagos, Nigeria</span>
+        <span class="contact_info_text">{{ user.location }}</span>
       </span>
       <span class="contact_info_item">
         <img
@@ -73,7 +74,7 @@
           height="18px"
           class="twitter"
         />
-        <span class="contact_info_text">@adeniransamuel</span>
+        <span class="contact_info_text">{{ user.twitter_username }}</span>
       </span>
     </div>
     <div class="highlights">
@@ -104,8 +105,20 @@
   </div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Sidebar",
+  created() {
+    this.fetchUser("sammuel09");
+  },
+  methods: {
+    ...mapActions(["fetchUser"]),
+  },
+  computed: {
+    ...mapState({
+      user: (state) => state.user,
+    }),
+  },
 };
 </script>
 <style scoped>
@@ -114,10 +127,13 @@ export default {
   flex-direction: column;
   justify-content: left;
   width: 100%;
-  /* width: 240px; */
 }
+.user_profile_img {
+  text-align: center;
+}
+
 .user_img {
-  border-radius: 50px;
+  border-radius: 50%;
 }
 .user_profile {
   display: flex;
@@ -129,7 +145,7 @@ export default {
   width: 100%;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   outline: none;
   border: 1px solid #1b1f2326;
@@ -142,7 +158,7 @@ export default {
   display: flex;
 }
 .user_info_count {
-  font-weight: bold;
+  font-weight: 700;
   margin-left: 5px;
 }
 .user_follower_info,
@@ -152,13 +168,14 @@ export default {
   flex-direction: row;
   margin-right: 12px;
   font-size: 12px;
+  font-weight: 500;
 }
 .contact_info {
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  padding-top: 20px;
-  padding-bottom: 14px;
+  padding-top: 24px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #d1d5da;
 }
 
@@ -168,22 +185,25 @@ export default {
 }
 
 .fullname {
-  font-weight: 900;
-  font-size: 24px;
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 26px;
 }
 
 .username {
   font-weight: 400;
+  font-size: 18px;
 }
 
 .bio {
   font-weight: 500;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 
 .contact_info_text {
   margin-left: 10px;
+  font-weight: 500;
 }
 .twitter {
   filter: grayscale(100%);

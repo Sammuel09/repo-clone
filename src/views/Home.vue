@@ -39,12 +39,9 @@ export default {
 .sidebar {
   width: 16%;
   margin-left: 17%;
-  /* border: 1px solid red; */
 }
 .repolist {
   width: 75%;
-  /* border: 1px solid red; */
-  margin-left: 28px;
-  /* margin-right: 10%; */
+  margin-left: 40px;
 }
 </style>
